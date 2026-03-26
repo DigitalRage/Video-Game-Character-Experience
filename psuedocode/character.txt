@@ -1,0 +1,6 @@
+#Character Class Pseudocode
+
+class CharSetup: 
+    Method __init__(self)
+        self.char = []
+        
