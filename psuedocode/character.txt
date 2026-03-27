@@ -1,6 +1,39 @@
 #Character Class Pseudocode
 
-class CharSetup: 
-    Method __init__(self)
-        self.char = []
-        
+CLASS Character:
+    ATTRIBUTES:
+        name
+        character_class
+        age
+        level
+        max_hp
+        hp
+        defense
+        strength
+        magic
+        max_mp
+        mp
+        skills (list)
+        alive (boolean)
+
+    METHOD __init__(name, character_class):
+        set name
+        set character_class
+        set level = 1
+        set health = 100
+        set defense = 5
+        set strength = 5
+        set magic = 5
+        set mp = 50
+        set skills = empty list
+        set alive = True 
+
+    METHOD attack(food_item):
+        remove hp equal to attackers strength - defenders defense
+        RETURN new hp value
+
+    METHOD defend():
+        decrease hp damage done to defender by 2x their defence
+        RETURN new hp value
+
+
