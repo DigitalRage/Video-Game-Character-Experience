@@ -1,0 +1,34 @@
+#Game Class Pseudocode
+
+CLASS Game:
+    ATTRIBUTES:
+        characters (list)
+
+    METHOD __init__():
+        characters = empty list
+
+    METHOD add_character(character):
+        append character to characters list
+
+    METHOD find_character(name):
+        FOR each character in characters:
+            IF character.name == name:
+                RETURN character
+        RETURN None
+
+    METHOD show_all_characters():
+        FOR each character in characters:
+            character.display_info()
+
+    METHOD battle(char1, char2):
+        PRINT "Battle begins!"
+        WHILE char1.alive AND char2.alive:
+            char1.attack_target(char2)
+            IF char2.alive == False:
+                PRINT char1.name + " wins!"
+                BREAK
+
+            char2.attack_target(char1)
+            IF char1.alive == False:
+                PRINT char2.name + " wins!"
+                BREAK

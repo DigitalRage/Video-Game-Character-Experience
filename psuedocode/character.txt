@@ -4,36 +4,53 @@ CLASS Character:
     ATTRIBUTES:
         name
         character_class
-        age
         level
         max_hp
         hp
+        attack
         defense
-        strength
-        magic
-        max_mp
-        mp
-        skills (list)
         alive (boolean)
 
     METHOD __init__(name, character_class):
         set name
         set character_class
         set level = 1
-        set health = 100
-        set defense = 5
-        set strength = 5
-        set magic = 5
-        set mp = 50
-        set skills = empty list
-        set alive = True 
+        IF class == "Warrior":
+            max_hp = 120
+            attack = 15
+            defense = 20
+        ELSE IF class == "Mage":
+            max_hp = 75
+            attack = 25
+            defense = 5
+        ELSE IF class == "Archer":
+            max_hp = 100
+            attack = 18
+            defense = 10
 
-    METHOD attack(food_item):
-        remove hp equal to attackers strength - defenders defense
-        RETURN new hp value
+        hp = max_hp
+        alive = True
 
-    METHOD defend():
-        decrease hp damage done to defender by 2x their defence
-        RETURN new hp value
+    METHOD display_info():
+        PRINT name, class, level, hp/max_hp, attack, defense
 
+    METHOD level_up():
+        level += 1
+        increase max_hp by 10
+        increase attack by 3
+        increase defense by 2
+        hp = max_hp
 
+    METHOD take_damage(amount):
+        damage = amount - defense
+        IF damage < 0:
+            damage = 0
+        hp -= damage
+        IF hp <= 0:
+            hp = 0
+            alive = False
+        RETURN hp
+
+    METHOD attack_target(target):
+        PRINT name + " attacks " + target.name
+        target.take_damage(attack)

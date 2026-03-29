@@ -1,0 +1,53 @@
+#Main Game Pseudocode
+
+START PROGRAM
+create Game object called game
+
+LOOP forever:
+    PRINT main menu options (1–6)
+
+    GET user choice
+
+    IF choice == 1:
+        PRINT "Create Character"
+        GET name
+        GET class selection
+        create new Character object
+        game.add_character(character)
+
+    ELSE IF choice == 2:
+        GET character name
+        char = game.find_character(name)
+        IF char exists:
+            char.display_info()
+        ELSE:
+            PRINT "Character not found"
+
+    ELSE IF choice == 3:
+        GET character name
+        char = game.find_character(name)
+        IF char exists:
+            char.level_up()
+        ELSE:
+            PRINT "Character not found"
+
+    ELSE IF choice == 4:
+        PRINT list of characters
+        GET fighter1 name
+        GET fighter2 name
+        char1 = game.find_character(fighter1)
+        char2 = game.find_character(fighter2)
+        IF both exist:
+            game.battle(char1, char2)
+        ELSE:
+            PRINT "Invalid fighters"
+
+    ELSE IF choice == 5:
+        game.show_all_characters()
+
+    ELSE IF choice == 6:
+        PRINT "Goodbye!"
+        EXIT LOOP
+
+    ELSE:
+        PRINT "Invalid choice"
